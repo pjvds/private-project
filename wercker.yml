@@ -1,6 +1,15 @@
 box: wercker/golang
 build:
   steps:
+    - script:
+        name: Setup deploy key
+        code: |-
+          mkdir -P "$HOME/.ssh"
+          cd "$HOME/.ssh"
+        
+          echo "$MYPACKAGE_KEY_PRIVATE" > id_rsa_mypackage
+          echo "IdentityFile $HOME/.ssh/id_rsa_mypackage" >> config
+  
     - pjvds/setup-go-workspace
 
     # - script:
