@@ -14,17 +14,13 @@ build:
           mkdir -p "$HOME/.ssh"
           cd "$HOME/.ssh"
         
-          echo "$MYPACKAGE_KEY_PRIVATE" > id_rsa_mypackage
+          echo -e "$MYPACKAGE_KEY_PRIVATE" > id_rsa_mypackage
           chmod 0700 id_rsa_mypackage
           
           #sed -i -e "1i IdentityFile $HOME/.ssh/id_rsa_mypackage" config
           echo "IdentityFile $HOME/.ssh/id_rsa_mypackage" > config
           chmod 0600 config
-    - script:
-        name: Echo private key
-        code: |-
-          echo $MYPACKAGE_KEY_PRIVATE
-          
+
     - script:
         name: Echo .ssh/config
         code: |-
