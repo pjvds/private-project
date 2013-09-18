@@ -4,7 +4,7 @@ build:
     - script:
         name: Setup deploy key
         code: |-
-          mkdir -P "$HOME/.ssh"
+          mkdir -p "$HOME/.ssh"
           cd "$HOME/.ssh"
         
           echo "$MYPACKAGE_KEY_PRIVATE" > id_rsa_mypackage
