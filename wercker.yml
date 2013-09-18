@@ -42,7 +42,7 @@ build:
           mkdir -p $GOPATH/src/github.com/pjvds/
           
           cd $GOPATH/src/github.com/pjvds/
-          git clone git@github.com:pjvds/private-project.git
+          git clone git@github.com:pjvds/private-package.git
 
     # - script:
     #     name: Populate cache
