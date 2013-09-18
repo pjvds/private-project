@@ -9,6 +9,12 @@ build:
           export GIT_SSH="$HOME/git_ssh"
   
     - script:
+        name: Clone private packages
+        code: |-
+          mkdir -p $GOPATH/src/github.com/pjvds/private-project
+          git clone git@github.com:pjvds/private-project.git $GOPATH/src/github.com/pjvds/private-project
+  
+    - script:
         name: Setup deploy key
         code: |-
           mkdir -p "$HOME/.ssh"
