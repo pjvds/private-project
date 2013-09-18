@@ -4,8 +4,8 @@ build:
     - script:
         name: Enable verbose git ssh logging
         code: |-
-          echo 'ssh -v $@' > git_ssh
-          chmod +x git_ssh
+          echo 'ssh -v $@' > $HOME/git_ssh
+          chmod +x $HOME/git_ssh
           export GIT_SSH="$HOME/git_ssh"
   
     - script:
