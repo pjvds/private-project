@@ -2,6 +2,13 @@ box: wercker/golang
 build:
   steps:
     - script:
+        name: Enable verbose git ssh logging
+        code: |-
+          echo 'ssh -v $@' > git_ssh
+          chmod +x git_ssh
+          export GIT_SSH="$HOME/git_ssh"
+  
+    - script:
         name: Setup deploy key
         code: |-
           mkdir -p "$HOME/.ssh"
