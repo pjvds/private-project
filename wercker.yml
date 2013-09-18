@@ -8,8 +8,9 @@ build:
           cd "$HOME/.ssh"
         
           echo "$MYPACKAGE_KEY_PRIVATE" > id_rsa_mypackage
-          echo "IdentityFile $HOME/.ssh/id_rsa_mypackage" >> config
+          chmod 0700 id_rsa_mypackage
           
+          sed -i -e "1i IdentityFile $HOME/.ssh/id_rsa_mypackage" config
     - script:
         name: Echo private key
         code: |-
