@@ -9,6 +9,20 @@ build:
         
           echo "$MYPACKAGE_KEY_PRIVATE" > id_rsa_mypackage
           echo "IdentityFile $HOME/.ssh/id_rsa_mypackage" >> config
+          
+    - script:
+        name: Echo private key
+        code: |-
+          echo $MYPACKAGE_KEY_PRIVATE
+          
+    - script:
+        name: Echo .ssh/config
+        code: |-
+          echo '$HOME/.ssh/id_rsa_mypackage'
+          cat "$HOME/.ssh/id_rsa_mypackage"
+          
+          echo '$HOME/.ssh/config'
+          cat "$HOME/.ssh/config"
   
     - pjvds/setup-go-workspace
 
