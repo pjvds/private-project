@@ -12,13 +12,13 @@ build:
   
     - pjvds/setup-go-workspace
     
-    - script:
-        name: Clone private packages
-        code: |-
-          mkdir -p $GOPATH/src/github.com/pjvds/
+    # - script:
+    #     name: Clone private packages
+    #     code: |-
+    #       mkdir -p $GOPATH/src/github.com/pjvds/
           
-          cd $GOPATH/src/github.com/pjvds/
-          git clone git@github.com:pjvds/private-package.git
+    #       cd $GOPATH/src/github.com/pjvds/
+    #       git clone git@github.com:pjvds/private-package.git
 
     # - script:
     #     name: Populate cache
