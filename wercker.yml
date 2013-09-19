@@ -1,7 +1,7 @@
 box: wercker/golang
 build:
   steps:
-    - pjvds/add-ssh-key:
+    - add-ssh-key:
         keyname: MYPACKAGE_KEY
   
     - script:
