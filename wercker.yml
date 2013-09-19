@@ -1,26 +1,9 @@
 box: wercker/golang
 build:
   steps:
-    - script:
-        name: Enable verbose git ssh logging
-        code: |-
-          echo 'ssh -v $@' > $HOME/git_ssh
-          chmod +x $HOME/git_ssh
-          export GIT_SSH="$HOME/git_ssh"
+    - pjvds/add-ssh-key:
+        keyname: MYPACKAGE_KEY
   
-    - script:
-        name: Setup deploy key
-        code: |-
-          mkdir -p "$HOME/.ssh"
-          cd "$HOME/.ssh"
-        
-          echo -e "$MYPACKAGE_KEY_PRIVATE" > id_rsa_mypackage
-          chmod 0700 id_rsa_mypackage
-          
-          #sed -i -e "1i IdentityFile $HOME/.ssh/id_rsa_mypackage" config
-          echo "IdentityFile $HOME/.ssh/id_rsa_mypackage" > config
-          chmod 0600 config
-
     - script:
         name: Echo .ssh/config
         code: |-
