@@ -7,9 +7,6 @@ build:
     - script:
         name: Echo .ssh/config
         code: |-
-          echo '$HOME/.ssh/id_rsa_mypackage'
-          cat "$HOME/.ssh/id_rsa_mypackage"
-          
           echo '$HOME/.ssh/config'
           cat "$HOME/.ssh/config"
   
