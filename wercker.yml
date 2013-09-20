@@ -9,7 +9,7 @@ build:
     - script:
         name: Clone private packages
         code: |-
-          git clone git@github.com:pjvds/private-package.git $GOPATH/src/github.com/pjvds/
+          git clone git@github.com:pjvds/private-package.git $GOPATH/src/github.com/pjvds/private-package
 
     - script:
         name: Get dependencies
