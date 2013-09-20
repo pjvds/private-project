@@ -4,31 +4,17 @@ build:
     - add-ssh-key:
         keyname: MYPACKAGE_KEY
   
-    - script:
-        name: Echo .ssh/config
-        code: |-
-          echo '$HOME/.ssh/config'
-          cat "$HOME/.ssh/config"
-  
     - pjvds/setup-go-workspace
     
-    # - script:
-    #     name: Clone private packages
-    #     code: |-
-    #       mkdir -p $GOPATH/src/github.com/pjvds/
-          
-    #       cd $GOPATH/src/github.com/pjvds/
-    #       git clone git@github.com:pjvds/private-package.git
+    - script:
+        name: Clone private packages
+        code: |-
+          git clone git@github.com:pjvds/private-package.git $GOPATH/src/github.com/pjvds/
 
     - script:
         name: Get dependencies
         code: |-
             go get -v ./...
-
-    - script:
-        name: Build
-        code: |
-            go build -a -v ./...
 
     - script:
         name: Test
